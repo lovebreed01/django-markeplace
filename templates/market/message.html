@@ -1,0 +1,33 @@
+{% extends 'market/base.html' %}
+{% load humanize %}
+
+
+{% block contents %}
+{% if user_messages %}
+<div id="messages">
+    {% for message  in user_messages %}
+    
+    <div id="message-cont">
+        <h3><h2>{{message.chat_from}}</h2> messaged you    </h3><span class="time">{{message.time_stamp | naturaltime}}</span>
+        <p>about <a class="item-details"  href="{% url 'details' message.item.slug %} ">"{{message.item}}"</a> - {{message.message}}</p>
+        <a class="btn btn-secondary" href="tel:{{message.chat_from.profile.phone_number}}">Call the bergainer </a>
+    </div>
+    
+ {% endfor %}
+
+</div>
+    
+ {% else %}
+ <h3>You have no messages yet</h3>
+{% endif %}
+
+
+{% endblock contents %}
+{% block scripts %}
+<script>
+    document.querySelector('footer').style.display = 'none';
+    document.querySelector('#message-count').innerHTML=0;
+
+</script>
+
+{% endblock scripts %}

@@ -1,0 +1,52 @@
+{% extends 'market/base.html' %}
+{% load static %}
+{% load humanize %}
+{% block title %}
+    Sell  and Buy used and new Products
+{% endblock title %}
+
+{% block contents %}
+{% if user.is_authenticated%}
+<button id="sell-btn">
+	<a  href="{% url 'create' %} ">Sell Item</a>
+</button>
+{% endif %}
+	
+<div id="">
+
+   <div id="content">
+		<h2>Check out newly posted ads !</h2>
+
+
+		<div id="items-cont">
+		{% for item in items %}
+			<div class="item-cont">
+				<img src="{{item.image_1.url}}"
+					 alt="">
+					<a href=" {{item.get_absolute_url}}">
+						<i style="background:brown;color: white; font-size: 15px;padding: 3px;border-radius: 5px;">{{item.created | naturaltime}}</i>
+						<br>
+						
+						<p>{{item.title}}</p>
+						<b style="float: right;">#{{item.price | intcomma}}</b>
+					</a>
+			</div>
+		{% endfor %}
+
+			
+	
+		</div>
+		
+	</div>
+
+	
+
+   
+    
+{% endblock contents %}
+
+{% block scripts  %}
+
+{% endblock scripts  %}
+
+

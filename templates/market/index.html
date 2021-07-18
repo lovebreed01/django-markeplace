@@ -1,0 +1,88 @@
+{% extends 'market/base.html' %}
+{% load static %}
+{% load humanize %}
+{% block title %}
+    Sell  and Buy used and new Products
+{% endblock title %}
+
+{% block contents %}
+{% if user.is_authenticated%}
+<button id="sell-btn">
+	<a  href="{% url 'create' %} ">Sell Item</a>
+</button>
+<div id="categories">
+	<button id="cat-btn">
+		Select by category
+	</button>
+	<div id="cat-links" >
+			{% for category in  categories%}
+			<a href="{% url 'category' category.slug %}">{{category.name}}</a>
+			<hr>
+			{% endfor %}
+	</div>
+
+</div>
+
+
+
+
+
+{% endif %}
+<div id="items-co">
+
+   <div id="content">
+		<h2>Check out newly posted ads !</h2>
+
+
+		<div id="items-cont">
+		{% for item in items %}
+			<div class="item-cont">
+				<img src="{{item.get_first_img.url}}"
+					 alt="">
+					<a href="{% url 'details' item.slug %}">
+						<i style="background:brown;color: white; font-size: 15px;padding: 3px;border-radius: 5px;">{{item.created | naturaltime}}</i>
+						<br>
+						
+						<p>{{item.title}}</p>
+						<b style="float: right;">#{{item.price | intcomma}}</b>
+					</a>
+			</div>
+		
+		{% endfor %}
+
+			
+	
+		</div>
+		
+	</div>
+	<script type="text/javascript">
+		const catBtn = document.getElementById('cat-btn')
+		const catLinks = document.getElementById('cat-links')
+
+		const show =()=>{
+    		if(catLinks.style.display == 'none'){
+				catLinks.style.display='block'
+				console.log("shown")
+				document.body.style.background='silver'
+				
+			}
+			else  {
+				catLinks.style.display='none'
+				document.body.style.background='white'
+
+
+			}    
+		}
+		catBtn.addEventListener('click',show)
+	</script>
+	
+
+	
+    
+{% endblock contents %}
+
+{% block scripts  %}
+
+{% endblock scripts  %}
+
+

@@ -1,0 +1,18 @@
+{% extends 'market/base.html' %}
+
+{% block contents %}
+
+<form enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    {{createform.as_p}}
+    {{imageform.as_p}}
+    <button class='btn-green' type="submit">Post Item</button>
+</form>
+  
+{% endblock contents %}
+{% block scripts %}
+    <script>
+        document.querySelector('#id_files').multiple = true
+
+    </script>
+{% endblock scripts %}

@@ -1,0 +1,563 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+*{
+    box-sizing: border-box;
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Zen+Loop&display=swap');
+nav{
+    background-color: black;
+    display: flex;
+    padding-top: 5px;
+    align-items: center;
+    flex-wrap:wrap;
+    margin-bottom: 30px;
+
+}
+#imgs-cont{
+    background:black;    
+}
+#imgs-cont #main-img{
+    width:100%;
+    height:300px;
+
+}
+#imgs-cont #rest-imgs{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    overflow: hidden;
+
+}
+#rest-imgs .rest-img{
+    width: 100px;
+    height: 100px;
+}
+nav #links{
+    width:100%;
+    display: none;
+    flex-direction:column;
+    align-items: flex-start;
+    align-self:flex-end ;
+    order:3;
+    background:rgb(216, 122, 15);
+    padding: 5px;
+    align-items: center;
+    
+}
+nav #menu-btn{
+    color:white;
+    font-size: 30px;
+    align-self:flex-start;
+    
+    
+
+}
+nav #links a {
+    font-size: 20px;
+    margin-right:10px;
+    color:black;
+    text-decoration: none;
+    margin-top: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+nav #links a:active{
+    text-decoration: tomato;
+}
+nav #brand{
+    color: rgb(51, 26, 26);
+    display: flex;
+    color: white;
+    flex: 2;
+    margin-left:20px;
+    align-self: flex-start;
+    
+    
+}
+nav #login-out a{
+    color:white;
+    flex: 2;
+    text-decoration: none;
+}
+#brand img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+
+}
+#brand .brand-name{
+    font-size: 30px;
+    margin-bottom: 10px;
+    font-family: 'Zen Loop', cursive;
+
+    text-decoration:none;
+}
+
+#items-cont{
+
+    margin:20px;
+}
+#items-cont .item-cont{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 2fr;
+    margin: 5px;
+    height: auto;
+    background-color:beige;
+    grid-gap:10px;
+}
+#items-cont .item-cont img{
+    width: 100px;
+    height:100px ;
+}
+#items-cont .item-cont a{
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    color:brown;
+    font-size:18px;
+    margin-top: 10px;
+}
+#related{
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: silver;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+#related .item-cont{
+        display:grid;
+        grid-template-columns: 1fr 2fr;
+        background:rgb(52, 48, 56);
+        margin-bottom: 10px;
+}
+.btn-green{
+    outline: none;
+    border: none;
+    background: green;
+    border-radius: 10px;
+    padding: 5px;
+    color: white;
+    font-size: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.btn-red{
+    outline: none;
+    border: none;
+    background:crimson;
+    border-radius: 10px;
+    padding: 5px;
+    color: white;
+    font-size: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+a{
+    text-decoration: none;
+    color: deepskyblue;
+}
+.btn-blue{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    outline: none;
+    border: none;
+    background:blue;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    cursor:pointer;
+    font-size: 20px;
+    
+}
+#related .item-cont img{
+    width: 100px;
+    height: 70px;
+}
+#related .item-cont a{
+    color:white;
+    text-align: center;
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size:15px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+
+}
+
+#categories{
+    float: right;
+    
+}
+#categories ul li{
+    list-style-type: none;
+}
+/* detail page css */
+#cont{
+    padding: 10px;
+}
+#detail-delete{
+    text-decoration: none;
+    color: red;
+    margin-bottom: 20px;
+}
+#detail-cat{
+    margin-top: 20px;
+    font-size: 20px;
+    font-family: unset;
+}
+#detail-title{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}
+#detail-time{
+    color: teal;
+    font-weight: bolder;
+}
+
+
+#details-cont img{
+    width:100%;
+    height: 300px;
+}
+.item-details-cont{
+    padding: 10px;
+}
+.item-details-cont p{
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.item-details-cont #seller-name{
+    font-size: 20px;
+    
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
+}
+.item-details-cont #price{
+    font-weight: bolder;
+    color: crimson;
+}
+
+#sell-btn{
+    background: rgb(109, 4, 44);
+    padding: 5px;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+}
+#cat-btn{
+    background: rgb(223, 127, 17);
+    font-size: 16px;
+    padding: 7px;
+    color: white;
+    outline: none;
+    border: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+}
+#sell-btn a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+#cat-links{
+    display: none;
+    transition: ease 2s;
+    background: black;
+    padding: 10px;
+    width: auto;
+    position: fixed;
+    text-align: center;
+    margin: auto;
+
+}
+#cat-links a{
+    text-decoration: none;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.show{
+    display: block;
+    
+}
+
+#phone{
+    text-decoration: none;
+    color: white;
+    background: green;
+    padding:10px;
+    border-radius: 20px;
+}
+
+
+
+#loginform{
+    background-color:wheat;
+    margin: auto;
+}
+#loginform legend{
+    font-size: 20px;
+}
+
+input[type="text"]{
+    font-size: 18px;
+    padding: 4px;
+}
+
+textarea{
+    font-size: 18px;
+    padding: 4px;
+    
+}
+#profile-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+#profile-info #info span{
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+#profile-info img{
+    margin: 50px;
+
+    width: 50%;
+    height: 250px;
+    border-radius: 50%;
+}
+
+footer{
+    background: rgb(41, 28, 28);
+    position:relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 5px;
+
+}
+footer .infos{
+    color: white;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+footer .social-links{
+    padding: 5px;
+}
+footer h4{
+    font-size: 25px;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+footer ul li{
+    list-style-type: none;
+    margin-bottom: 5px;
+    
+}
+footer ul li a{
+    text-decoration: none;
+    font-size: 15px;
+    color: white;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.notify{
+    position: fixed;
+    top: 0;
+    background: rgb(79, 182, 31);
+    width: 100%;
+    color: white;
+    padding: 10px;
+}
+
+#msg-form{
+    display: none;
+}
+#messages :nth-child(2){
+    background: cornsilk;
+}
+#message-cont{
+    font-size: 17px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border: 1px solid brown;
+    width: 70%;
+    padding: 5px;
+    border-radius: 10px;
+    margin:5px ;
+
+}
+#message-cont .time{
+    color: rgb(224, 122, 38);
+}
+.image-sliderfade 
+{
+  display: none;
+}
+  
+img 
+{
+  vertical-align: middle;
+}
+  
+/* Slideshow container */
+.container 
+{
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+  
+/* Caption text */
+.text 
+{
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 20px 15px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 40%;
+  background: rgba(0, 0, 0, .7);
+  text-align: left;
+}
+  
+/* The dots/bullets/indicators */
+.dot 
+{
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: transparent;
+  border-color: #ddd;
+  border-width: 5 px;
+  border-style: solid;
+  border-radius: 50%;
+  display: inline-block;
+  transition: border-color 0.6s ease;
+}
+  
+.active 
+{
+  border-color: #666;
+}
+  
+/* Animation */
+.fade 
+{
+  -webkit-animation-name: fade-image;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade-image;
+  animation-duration: 1.5s;
+}
+  
+@-webkit-keyframes fade-image
+{
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+  
+@keyframes fade-image
+{
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+  
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) 
+{
+  .text {font-size: 11px}
+}
+/* breakpoint for desktop view */
+@media screen and (min-width:740px) {
+
+    nav #links{
+        display:flex;
+        width:auto;
+        flex:1;
+        order:2;
+        align-self: center;
+        flex-direction: row;
+        background: none;
+
+    }
+    nav #links a{
+        color: white;
+    }
+    nav #menu-btn{
+        display: none;
+    }
+    nav #login-out{
+        order:3;
+    }
+    nav #brand{
+        flex: 1;
+    }
+    #items-cont{
+        display:grid;
+        grid-template-columns: repeat(5,1fr);
+        grid-gap: 5px;
+    }
+    #items-cont .item-cont img{
+        width: 100%;
+        height: 200px;
+    }
+    #items-cont .item-cont{
+        width:200px;
+        display: flex;
+        flex-wrap: wrap;
+        color: black;
+        border-radius: 0px;
+        height: auto;
+    }
+    #related{
+        margin: 0; 
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+        margin-left: 200px;
+        margin-right: 200px;
+    }
+    #related .item-cont{
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr 2fr;
+        margin: 5px;
+        background-color:cornsilk;
+        
+        grid-gap:10px;
+        padding: 3px;
+        color: black;
+    }
+    #related .item-cont img{
+        height: 100px;
+        width: 100px;
+    }
+    #related .item-cont a{
+        color: black;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    #details-cont{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        font-size:35px;
+        grid-gap: 20px;
+
+    }
+    #details-cont img{
+
+        
+    }
+    #profile-info img{
+        width: 30%;
+        height: 350px;
+
+    }
+
+}
+

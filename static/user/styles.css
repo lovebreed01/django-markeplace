@@ -1,0 +1,115 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+    background: darkgray;
+
+    
+
+}
+*{
+    box-sizing: border-box;
+}
+#div-cont{
+    background:rgba(10,40,40,0.3);
+    color: black;
+    border-radius: 5px;
+    padding: 20px;
+    width: 450px;
+
+}
+#div-cont ul li{
+    list-style-type: none;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 13px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
+#loginform label{
+    font-size: 20px;
+    font-weight: lighter;
+    margin:10px;
+    color:white;
+    font-family:serif;
+    color: white;
+}
+label{
+    color: white;
+}
+.inp-cont{
+    background-color: white;
+    display: flex;
+    align-items: center;
+}
+.fa{
+    color: black;
+    padding-right: 2px;
+    margin-left: 3px;
+}
+#loginform input{
+    outline: none;
+    border: none;
+    
+    width: 95%;
+    font-size: 20px;
+    padding: 3px;
+}
+#loginform #btn{
+    cursor: pointer;
+    margin-top:10px ;
+    background-color:rgb(0, 0, 0) ;
+    color: white;
+    width:100%;
+    text-align: center;
+    outline: none;
+    padding:7px;
+    border: none;
+    font-size: 17px;
+
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#loginform #btn:hover{
+    filter: drop-shadow(2px 2px 5px black);
+
+}
+
+#question{
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#question a{
+    color: aqua;
+}
+.fa-eye{
+    cursor:pointer;
+}
+.recent input{
+    width: 100%;
+    outline: none;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: brown;
+}
+.recent select{
+    width: 100%;
+    font-size: 15px;
+}
+.recent a{
+    color: aqua;
+}
+.recent label{
+    font-size:20px;
+    font-family:'Quicksand', sans-serif;
+}
+#recent-btn{
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+}

@@ -1,0 +1,35 @@
+{% extends 'landing/base.html' %}
+
+{% block content %}
+    <div class="d-flex flex-column justify-content-center align-items-center text-dark m-auto ">
+        <form method="POST" class="row" action="" enctype="multipart/form-data" >
+            
+            {% csrf_token %}
+            {% for field in u_form %}
+           <div class="form-group col-md-6"> 
+                {{field.label}}
+                <br> 
+                {{field}}   
+                <p class="text-danger"> {{field.help_text}}</p>
+
+           </div>
+           
+           {% endfor %}
+           {% for field in p_form %}
+           <div class="form-group"> 
+                {{field.label}}
+                <br> 
+                {{field}}   
+                <p class="text-danger"> {{field.help_text}}</p>
+
+           </div>
+           
+           {% endfor %}
+                        
+          <br>	
+          <button class="col-md-6 btn btn-primary" id="recent-btn" type="submit"> Update</button>
+        </form>
+
+    </div>
+    
+{% endblock content %}

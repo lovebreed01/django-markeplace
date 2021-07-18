@@ -1,0 +1,106 @@
+{% load static %}
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'market/css/style.css' %}">
+    <title>
+    {% block title %}
+        Django Marketplace
+    {% endblock title %}
+    </title>
+</head>
+<body>
+{% if messages %}
+	{% for message in messages  %}
+		<div class="notify">{{message}} <span class="times" style="float: right;color: red; font-size: 30px;cursor: pointer;" >&times</span></div>
+	{% endfor %}
+	
+	{% endif %}
+    
+	<nav>
+
+		<i href="#" id="menu-btn" class="fa fa-bars"></i>
+		<a href='#' id="brand" href="#">
+			<div class="brand-name" >SellAm</div>
+
+		</a>
+		<div id="links">
+			<a href="#">Home</a>
+			<a href="#">Local Products</a>
+			<a href="#">Policies</a>
+			<a href="#">About us</a>
+		</div>
+
+		<br>
+		<div id="login-out">
+		{% if user.is_authenticated %}
+			<a href=" {% url 'message' %} ">Messages | </a>
+			<a  href="{% url 'profile' %}">{% if user.is_active %}  {% endif %} Profile | </a><a href=" {% url 'logout' %}">Log out </a>
+		{% else %}
+			<a href=" {% url 'login' %}">Log in | </a><a href=" {% url 'signup' %}">Sign up </a>
+		{% endif %}
+		</div>
+		<br>
+
+
+	</nav>
+	
+	
+	<script src="{% static 'market/javascript/scripts.js' %}">
+		alert('welcome')
+	</script>
+	
+	
+	<script type="text/javascript">
+	
+	</script>
+    {% block contents %}
+	
+	
+    {% endblock contents %}
+	<footer>
+		<div class="social-links">
+
+			<ul>
+				<h4>Connect with us via</h4>
+				<li>
+					<a href="#">
+						<span class="fa fa-facebook fa-2x"></span>
+						<b>Facebook</b>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<span class="fa fa-instagram fa-2x"></span>
+						<b>Instagram</b>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<span class="fa fa-twitter fa-2x"></span>
+						<b>Twitter</b>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="infos">SellAm.ng Copyright 2020-2021</div>
+
+	</footer>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    {% block scripts %}
+	
+    
+    {% endblock scripts %}
+	
+</body>
+</html>

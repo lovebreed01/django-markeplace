@@ -1,0 +1,32 @@
+{% extends 'landing/base.html' %}
+
+{% block content %}
+<div id="div-cont">
+    <form action="" method="POST" name="loginform" id="loginform"> 
+        {% csrf_token %}  
+        {{form.username.label_tag}}
+        <div class="inp-cont">
+            <span class="fa fa-user "></span>{{form.username}}
+        </div>{{form.username.errors}}<br>
+        {{form.password.label_tag}}<br>
+        <div class="inp-cont">
+            <span class="fa fa-lock"></span><input type="password" name="password" id="pass">
+        </div>
+        {% if form.errors %}
+
+        <br>
+        <i>Please enter a corerect usersname and password !</i>
+          
+        {% endif %}
+        <br><br>
+        <button type="submit" id="btn">Log in</button>
+            
+        
+    </form>
+
+    <p id="question">Don't have an account ? <a href="{% url 'signup' %}">Sign up</a></p>
+</div>
+
+
+  
+{% endblock content %}
