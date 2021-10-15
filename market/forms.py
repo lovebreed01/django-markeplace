@@ -40,7 +40,8 @@ class MessageForm(ModelForm):
             })
         }
 class ImagesUpload(ModelForm):
-    files = forms.ClearableFileInput(attrs={'multiple':True})
+    files = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True,'accept':"image/*"}))
+
     class Meta:
         model= Images
         fields=['files']

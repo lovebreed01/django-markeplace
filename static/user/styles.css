@@ -1,12 +1,40 @@
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 100px;
-    background: darkgray;
-
-    
-
+ body{
+     padding: 0;
+     margin: 0;
+     display: flex;
+     flex-direction: column;
+ } 
+.sellam-btn{
+    background-color: tomato;
+    color:white;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    padding:7px;
+    width: 100%;
+    align-self: center;
+    margin-bottom: 10px;
+   
+}
+.sellam-btn:hover{
+    background-color: rgba(255, 99, 71, 0.788);
+}
+label{ 
+    color: brown;
+    font-weight: bold;
+    font-size: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+input,textarea,select{
+    border: 1px solid tomato;
+    border-radius: 5px;
+    outline: none;
+}
+input{
+    width: 100%;
+}
+input:focus{
+    border: 2px solid tomato;
 }
 *{
     box-sizing: border-box;
@@ -37,24 +65,9 @@ body{
 label{
     color: white;
 }
-.inp-cont{
-    background-color: white;
-    display: flex;
-    align-items: center;
-}
-.fa{
-    color: black;
-    padding-right: 2px;
-    margin-left: 3px;
-}
-#loginform input{
-    outline: none;
-    border: none;
-    
-    width: 95%;
-    font-size: 20px;
-    padding: 3px;
-}
+
+
+
 #loginform #btn{
     cursor: pointer;
     margin-top:10px ;
@@ -75,13 +88,13 @@ label{
 }
 
 #question{
-    color: white;
+    color:brown;
     font-size: 15px;
     text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 #question a{
-    color: aqua;
+    color: rgb(21, 27, 83);
 }
 .fa-eye{
     cursor:pointer;

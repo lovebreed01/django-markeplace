@@ -6,79 +6,43 @@
 {% endblock title %}
 
 {% block contents %}
-{% if user.is_authenticated%}
-<button id="sell-btn">
-	<a  href="{% url 'create' %} ">Sell Item</a>
-</button>
-<div id="categories">
-	<button id="cat-btn">
-		Select by category
-	</button>
-	<div id="cat-links" >
-			{% for category in  categories%}
-			<a href="{% url 'category' category.slug %}">{{category.name}}</a>
-			<hr>
-			{% endfor %}
-	</div>
-
-</div>
-
-
-
-
-
-{% endif %}
-<div id="items-co">
-
-   <div id="content">
-		<h2>Check out newly posted ads !</h2>
-
-
-		<div id="items-cont">
-		{% for item in items %}
-			<div class="item-cont">
-				<img src="{{item.get_first_img.url}}"
-					 alt="">
-					<a href="{% url 'details' item.slug %}">
-						<i style="background:brown;color: white; font-size: 15px;padding: 3px;border-radius: 5px;">{{item.created | naturaltime}}</i>
-						<br>
-						
-						<p>{{item.title}}</p>
-						<b style="float: right;">#{{item.price | intcomma}}</b>
-					</a>
-			</div>
-		
-		{% endfor %}
-
-			
-	
+ <div id="welcome" class="text-center  py-5" >
+		<div class="find">
+			<h1 class="buysell" style="font-weight: 100;font-size:30px;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" >Buy and sell anything in Nigeria</h1>
 		</div>
+		<form class="form py-4" action="#">
+			<input type="text"  placeholder="What are you looking for ?" name="search" id="search-input" class="p-1" autocomplete="off" >
+			<button class="btn btn-secondary" type="submit">Search</button>
+		</form>
+    </div>
+	<br>
+    <div class="categories d-flex flex-wrap ">
+		<a href=" {% url 'create' %}" class="add-item m-auto d-flex flex-column align-items-center">
+			<div class="post-ad">+</div>
+			<span class="text-dark" style="font-size:25px;">Post ad</span>
+		</a>
+		{% for category in categories %}
+		<a href=" {% url 'category' category.slug %}" class=" category d-flex flex-column align-items-center">
+			<img src="{{category.image.url}}"
+			class="category-image" 
+			alt="" srcset="">
+			<b class="font-size">{{category.name}}</b>
+		</a>
+		{% endfor %}
 		
 	</div>
-	<script type="text/javascript">
-		const catBtn = document.getElementById('cat-btn')
-		const catLinks = document.getElementById('cat-links')
-
-		const show =()=>{
-    		if(catLinks.style.display == 'none'){
-				catLinks.style.display='block'
-				console.log("shown")
-				document.body.style.background='silver'
-				
-			}
-			else  {
-				catLinks.style.display='none'
-				document.body.style.background='white'
-
-
-			}    
-		}
-		catBtn.addEventListener('click',show)
-	</script>
-	
-
-	
-    
+	<h2>Featured ads</h2>
+	<div class="featured-ads d-flex flex-wrap ">
+	{% for item in items %}
+		<a href=" {% url 'details' item.slug %}" class="d-flex flex-column overflow-hidden">
+			<b class="price">#{{item.price}}</b>
+			<img src="{{item.get_first_img.url}}" alt="">
+			<span class="description align-self-center">{{item.title}}</span>
+		</a>
+	{% endfor %}
+		
+		
+	</div>
 {% endblock contents %}
 
 {% block scripts  %}

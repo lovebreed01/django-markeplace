@@ -1,20 +1,50 @@
 {% load static %}
+<!-- this is a base model for this website, it consists of external links in the header section , navbar and footer section  -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="/static/admin/js/vendor/jquery/jquery.js"></script>
-     <script src="/static/smart-selects/admin/js/bindfields.js"></script>
-     <script src="/static/smart-selects/admin/js/chainedfk.js"></script>
+    <!-- links for external libraries -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- links for internal css -->
+    <link rel="stylesheet" href="{% static 'user/styles.css' %}">
     <title>Document</title>
 </head>
 <body>
-    {% block content %}
+    <!-- navbar tag -->
 
+   
+
+    <nav>
+		<a href='#' id="brand" href="#">
+			<div class="brand-name" >
+				<img src="{% static 'sellam-logo.png' %}" width="100" alt="">
+			</div>
+		</a>
+		<br>
+		<div id="login-out">
+		<a href="#"></a>
+		</div>
+		<br>
+	</nav>
+
+    <!-- end of navbar tag -->
+    {% block content %}
+    
     {% endblock content %}
+
+    
+
+    <!-- footer section  -->
+
+   
+
+    <!-- end of footer section  -->
 </body>
 </html>

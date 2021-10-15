@@ -1,18 +1,37 @@
-{% extends 'market/base.html' %}
+{% extends 'landing/base.html' %}
 
-{% block contents %}
+{% block content %}
 
-<form enctype="multipart/form-data" method="POST">
-    {% csrf_token %}
-    {{createform.as_p}}
-    {{imageform.as_p}}
-    <button class='btn-green' type="submit">Post Item</button>
-</form>
-  
-{% endblock contents %}
+ <div class="d-flex flex-column justify-content-center align-items-center flex-wrap m-auto">
+        <form class="form" enctype="multipart/form-data" method="POST"  >   
+        {% csrf_token %}
+           {% for field in createform %}
+           <div class="form-group"> 
+                {{field.label}}
+                <br> 
+                {{field}}   
+
+           </div>
+           
+           {% endfor %}
+
+            {% for field in imageform %}
+           <div class="form-group"> 
+                {{field.label}}
+                <br> 
+                {{field}}   
+
+           </div>
+           
+           {% endfor %}
+      
+            <button type="submit" class="sellam-btn" >Post Ad</button>
+                
+            
+        </form>
+       
+    </div>
+{% endblock content %}
 {% block scripts %}
-    <script>
-        document.querySelector('#id_files').multiple = true
-
-    </script>
+   
 {% endblock scripts %}

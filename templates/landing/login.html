@@ -1,32 +1,25 @@
 {% extends 'landing/base.html' %}
 
 {% block content %}
-<div id="div-cont">
-    <form action="" method="POST" name="loginform" id="loginform"> 
-        {% csrf_token %}  
-        {{form.username.label_tag}}
-        <div class="inp-cont">
-            <span class="fa fa-user "></span>{{form.username}}
-        </div>{{form.username.errors}}<br>
-        {{form.password.label_tag}}<br>
-        <div class="inp-cont">
-            <span class="fa fa-lock"></span><input type="password" name="password" id="pass">
-        </div>
-        {% if form.errors %}
+ <div class="d-flex flex-column justify-content-center align-items-center flex-wrap">
+        <form class="form" method="POST" name="loginform" >   
+        {% csrf_token %}
+           {% for field in form %}
+           <div class="form-group"> 
+                {{field.label}}
+                <br> 
+                {{field}}   
+                <p class=""> {{field.help_text}}</p>
 
-        <br>
-        <i>Please enter a corerect usersname and password !</i>
-          
-        {% endif %}
-        <br><br>
-        <button type="submit" id="btn">Log in</button>
+           </div>
+           
+           {% endfor %}
+            <button type="submit" class="sellam-btn  m-auto" >Log In</button>
+                
             
-        
-    </form>
-
-    <p id="question">Don't have an account ? <a href="{% url 'signup' %}">Sign up</a></p>
-</div>
-
+        </form>
+        <p id="question">Forgot password ? <a href=" {% url 'signup' %} ">Sign Up</a></p>
+    </div>
 
   
 {% endblock content %}

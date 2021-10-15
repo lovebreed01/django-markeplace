@@ -1,106 +1,88 @@
 {% load static %}
 {% load humanize %}
+<!-- this is a base model for this website, it consists of external links in the header section , navbar and footer section  -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{% static 'market/css/style.css' %}">
-    <title>
-    {% block title %}
-        Django Marketplace
-    {% endblock title %}
-    </title>
+    <!-- links for external libraries -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- links for internal css -->
+    <link rel="stylesheet" href=" {% static 'market/css/style.css' %}">
+    <title>Document</title>
 </head>
 <body>
-{% if messages %}
-	{% for message in messages  %}
-		<div class="notify">{{message}} <span class="times" style="float: right;color: red; font-size: 30px;cursor: pointer;" >&times</span></div>
-	{% endfor %}
-	
-	{% endif %}
-    
-	<nav>
+    <!-- navbar tag -->
 
-		<i href="#" id="menu-btn" class="fa fa-bars"></i>
+   
+
+    <nav>
+
+		<b href="#" class="px-2" id="menu-btn">&#9776</b>
 		<a href='#' id="brand" href="#">
-			<div class="brand-name" >SellAm</div>
+			<div class="brand-name" ><img src=" {% static 'sellam-logo.png' %}" alt=""></div>
 
 		</a>
-		<div id="links">
-			<a href="#">Home</a>
-			<a href="#">Local Products</a>
-			<a href="#">Policies</a>
-			<a href="#">About us</a>
+		<div id="" class="links">
+			<a href="#" class="link">Home</a>
+			
+			<a href="#" class="link">Policies</a>
+			<a href="#" class="link">About us</a>
 		</div>
 
 		<br>
 		<div id="login-out">
-		{% if user.is_authenticated %}
-			<a href=" {% url 'message' %} ">Messages | </a>
-			<a  href="{% url 'profile' %}">{% if user.is_active %}  {% endif %} Profile | </a><a href=" {% url 'logout' %}">Log out </a>
-		{% else %}
-			<a href=" {% url 'login' %}">Log in | </a><a href=" {% url 'signup' %}">Sign up </a>
-		{% endif %}
+		<a href="#"><i class="fa fa-user"></i></a>
 		</div>
 		<br>
 
 
 	</nav>
-	
-	
-	<script src="{% static 'market/javascript/scripts.js' %}">
-		alert('welcome')
-	</script>
-	
-	
-	<script type="text/javascript">
-	
-	</script>
-    {% block contents %}
-	
-	
-    {% endblock contents %}
-	<footer>
-		<div class="social-links">
 
-			<ul>
-				<h4>Connect with us via</h4>
-				<li>
-					<a href="#">
-						<span class="fa fa-facebook fa-2x"></span>
-						<b>Facebook</b>
-					</a>
-				</li>
-				<li>
-					<a href="#">
-						<span class="fa fa-instagram fa-2x"></span>
-						<b>Instagram</b>
-					</a>
-				</li>
-				<li>
-					<a href="#">
-						<span class="fa fa-twitter fa-2x"></span>
-						<b>Twitter</b>
-					</a>
-				</li>
-			</ul>
+    <!-- end of navbar tag -->
+	{% block contents %}
+	
+	{% endblock contents %}
+
+
+
+    <!-- footer section  -->
+
+    <footer class="p-3">
+		<div class='footer-section row '>
+			<div class='send-msg col-md-4 d-flex flex-column'>
+				<h4 class="text-dark">Send Us A Message</i></h4>
+				<form action="post">
+					<input type="email" name='sender-email' placeholder="Your Email" class="w-100 p-2">
+					<br><br>
+					<textarea name="message-body" id="message-body" placeholder="Your Message" cols="30" rows="5" class="w-100 p-2"></textarea>
+					<button type="submit" class="btn btn-dark">Send Message <i class="fa fa-envelope"></i></button>
+				</form>
+				<br><br>
+
+			</div>
+			<div class="social-medias col-md-4 d-flex flex-column text-white">
+				<h4 class="text-dark">Follow Us On :</h4>
+				<a href="#" >Facebook <i class="fab fa-facebook"></i></a>
+				<a href="#">Twitter <i class="fab fa-twitter"></i></a>
+				<a href="#">Instagram</a>
+				<br><br>
+			</div>
+			<div class="other col-md-4 d-flex flex-column">
+				<h4 class="text-dark">More</h4>
+				<a href="#">Privacy and Policy</a>
+				<a href="#">Terms and Conditions</a>
+				<a href="#">Frequently asked questions</a>
+			</div>
 		</div>
-		<div class="infos">SellAm.ng Copyright 2020-2021</div>
-
 	</footer>
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-	</script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-    {% block scripts %}
-	
-    
-    {% endblock scripts %}
-	
+    <!-- end of footer section  -->
 </body>
 </html>

@@ -4,13 +4,14 @@
 
 {% block contents %}
 {% if user_messages %}
-<div id="messages">
+<div class="row">
     {% for message  in user_messages %}
     
-    <div id="message-cont">
+    <div class="col-md-4 text-white  p-4 m-4" style="background-color:tomato;">
         <h3><h2>{{message.chat_from}}</h2> messaged you    </h3><span class="time">{{message.time_stamp | naturaltime}}</span>
-        <p>about <a class="item-details"  href="{% url 'details' message.item.slug %} ">"{{message.item}}"</a> - {{message.message}}</p>
-        <a class="btn btn-secondary" href="tel:{{message.chat_from.profile.phone_number}}">Call the bergainer </a>
+        <p>about <a class="item-details text-dark"  href="{% url 'details' message.item.slug %} ">"{{message.item}}"</a> <br><br>
+            said "{{message.message}}"</p>
+        <a class="btn bg-secondary text-white" href="tel:{{message.chat_from.profile.phone_number}}">Call the bergainer </a>
     </div>
     
  {% endfor %}

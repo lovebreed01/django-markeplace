@@ -41,8 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'market',
     'user.apps.UserConfig',
-    'cities_light',
-    'smart_selects'
+   
 ]
 
 MIDDLEWARE = [
@@ -127,9 +126,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR/"static",
 ]
-# JQUERY_URL =True
 
-# USE_DJANGO_JQEURY = True
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

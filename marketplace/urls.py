@@ -24,7 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('market.urls')),
     path('', include('user.urls')),
-    path('chaining/',include('smart_selects.urls'))
     
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
     

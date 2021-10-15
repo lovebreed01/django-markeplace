@@ -1,22 +1,20 @@
 {% extends 'landing/base.html' %}
 
 {% block content %}
-     <div class="d-flex flex-column justify-content-center align-items-center">
-        <form class="form" method="POST" name="loginform" id="loginform">   
+     <div class="d-flex flex-column justify-content-center align-items-center flex-wrap m-auto">
+        <form class="form" method="POST"  >   
         {% csrf_token %}
            {% for field in form %}
            <div class="form-group"> 
                 {{field.label}}
                 <br> 
                 {{field}}   
-                <p class="text-danger"> {{field.help_text}}</p>
 
            </div>
            
            {% endfor %}
-           
-            <br><br>
-            <button type="submit" class="btn btn-primary" >Sign Up</button>
+      
+            <button type="submit" class="sellam-btn" >Sign Up</button>
                 
             
         </form>

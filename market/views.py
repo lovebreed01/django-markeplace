@@ -15,7 +15,7 @@ from django.contrib import messages
 
 @login_required
 def index(request):
-    items = Item.objects.all().order_by('-created').filter(seller__profile__state=request.user.profile.state)
+    items = Item.objects.all().order_by('-created')
     categories = Category.objects.all()
     context ={
         'items':items,
@@ -29,7 +29,7 @@ def details(request,slug):
     images = Images.objects.filter(item = item)
     for img in images:
         print(img.files.url)
-    related_items = Item.objects.filter(category = item.category)
+    related_items = Item.objects.filter(category = item.category).exclude(id=item.id)[:10]
     message = Message.objects.filter(chat_from = request.user)
     if request.method=='POST':
         messageform = MessageForm(request.POST)
@@ -109,6 +109,7 @@ def category(request,slug):
     items = Item.objects.filter(category = category).order_by('-created')
     context ={
         'items':items,
+        'category':category,
     }
     return render(request, 'market/category.html',context)
 

@@ -3,10 +3,12 @@ from django.shortcuts import reverse
 from datetime import datetime
 from django.contrib.auth.models import  User
 from django.utils.text import slugify
+from user.models import State
 
 class Category(models.Model):
     name = models.CharField(max_length=120)
     slug = models.SlugField(blank = True)
+    image = models.ImageField(upload_to='category_images', default='test.jpg')
 
     def save(self,*args,**kwargs):
         self.slug = slugify(self.name)
@@ -27,7 +29,7 @@ class Item(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     description = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
-    negotiable = models.BooleanField(default=False)
+    location = models.ForeignKey(State, on_delete=models.CASCADE, default=1)
 
     def get_absolute_url(self):
         return reverse("details", kwargs={"slug": self.slug})
