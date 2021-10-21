@@ -1,11 +1,26 @@
-{% extends 'market/base.html' %}
+{% extends 'landing/base.html' %}
 
-{% block contents %}
+{% block content %}
 
-<form enctype="multipart/form-data" method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit">Submit Edit</button>
-</form>
+<div class="d-flex flex-column justify-content-center align-items-center flex-wrap m-auto">
+<p class="form-description">Edit Item details</p>
+        <form class="form" enctype="multipart/form-data" method="POST"  >   
+        {% csrf_token %}
+           {% for field in form %}
+           <div class="form-group"> 
+                {{field.label}}
+                <br> 
+                {{field}}   
+
+           </div>
+           
+           {% endfor %}
+      
+            <button type="submit" class="sellam-btn" >Change Ad Info</button>
+                
+            
+        </form>
+       
+    </div>
   
-{% endblock contents %}
+{% endblock content %}

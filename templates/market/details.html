@@ -6,7 +6,6 @@
 {% endblock title %}
 
 {% block contents %}
-
   <div id="welcome" class="text-center  p-5 d-flex flex-wrap justify-content-center" >
 		<div class="find w-100 p-5">
 			<h1 style="font-weight: 100;font-size:30px;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" class="buysell">Buy and sell anything in Nigeria</h1>
@@ -21,7 +20,8 @@
 
     <div class="mt-5" id="cont">
     {% if request.user == item.seller and request.user.is_authenticated %}
-        <i>Is this item already purchased ? <a class="btn btn-danger" href="{% url 'delete' item.slug %}">Delete item </a></i>
+        <i><a class="btn btn-danger" href="{% url 'delete' item.slug %}">Delete item </a></i>
+        <i><a class="btn btn-success" href="{% url 'edit' item.slug %}">Edit item</a></i>
     	
     {% endif%}
     <br><br>

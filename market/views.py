@@ -1,3 +1,4 @@
+from django.http import request
 from django.shortcuts import(get_object_or_404,
                             render,
                             redirect
@@ -11,8 +12,6 @@ from django.contrib import messages
 #    item = Item.objects.get(args=[str(pk)])
  #   return user == item.sellers
  #   print(user == item.seller)
-
-
 @login_required
 def index(request):
     items = Item.objects.all().order_by('-created')
@@ -22,7 +21,6 @@ def index(request):
         'categories':categories,
     }
     return render(request, 'market/index.html',context)
-
 @login_required
 def details(request,slug):
     item = Item.objects.get(slug = slug)

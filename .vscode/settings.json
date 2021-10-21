@@ -2,5 +2,6 @@
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 100,
     "diffEditor.wordWrap": "on",
-    "editor.wordWrap": "on"
+    "editor.wordWrap": "on",
+    "liveServer.settings.port": 5501
 }

@@ -9,10 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- links for external libraries -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- links for internal css -->
     <link rel="stylesheet" href=" {% static 'market/css/style.css' %}">
     <title>Document</title>
@@ -20,30 +17,44 @@
 <body>
     <!-- navbar tag -->
 
-   
-
-    <nav>
+	 <nav>
 
 		<b href="#" class="px-2" id="menu-btn">&#9776</b>
 		<a href='#' id="brand" href="#">
-			<div class="brand-name" ><img src=" {% static 'sellam-logo.png' %}" alt=""></div>
-
+			<div class="brand-name" ><img src="{% static 'sellam-logo.png' %}" alt=""></div>
 		</a>
-		<div id="" class="links">
-			<a href="#" class="link">Home</a>
-			
+		<div class="links">
 			<a href="#" class="link">Policies</a>
 			<a href="#" class="link">About us</a>
 		</div>
-
 		<br>
 		<div id="login-out">
-		<a href="#"><i class="fa fa-user"></i></a>
+			<a href="#">
+				<img src=" {% static 'sellam-logo.png' %}" alt="">
+
+			</a>
+			<div class="drops">
+				
+				{% if user.is_authenticated %}
+					<a href="{% url 'profile' %}">My Profile</a>
+
+					<a href="{% url 'message' %}">Messages</a>
+					<a href=" {% url 'logout' %}">Log Out</a>
+
+				{% else %}
+					<a href=" {% url 'login' %}">Log In</a>
+					<a href=" {% url 'signup' %}">Register</a>
+
+				{% endif %}
+				
+	
+			</div>
 		</div>
 		<br>
 
 
 	</nav>
+	
 
     <!-- end of navbar tag -->
 	{% block contents %}
@@ -84,5 +95,16 @@
 	</footer>
 
     <!-- end of footer section  -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script >
+		menuBtn = document.getElementById('menu-btn')
+
+		links = document.querySelector('.links')
+		menuBtn.onclick = function(){
+			links.style.display == 'none' ? links.style.display = 'flex' : links.style.display = 'none'
+}
+	</script>
 </body>
 </html>

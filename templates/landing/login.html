@@ -1,7 +1,13 @@
 {% extends 'landing/base.html' %}
 
 {% block content %}
- <div class="d-flex flex-column justify-content-center align-items-center flex-wrap">
+ <div class="d-flex flex-column justify-content-center align-items-center flex-wrap m-auto">
+ <p class="form-description">Log In</p>
+  {% if form.errors %}
+    {% for error in form.errors %}
+        <p class="text-danger">Enter a correct username and password</p>
+    {% endfor %}
+  {% endif %}
         <form class="form" method="POST" name="loginform" >   
         {% csrf_token %}
            {% for field in form %}

@@ -3,6 +3,7 @@
 {% block content %}
 
  <div class="d-flex flex-column justify-content-center align-items-center flex-wrap m-auto">
+      <p class="form-description">Create a new ad</p>
         <form class="form" enctype="multipart/form-data" method="POST"  >   
         {% csrf_token %}
            {% for field in createform %}

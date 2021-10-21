@@ -1,19 +1,20 @@
-{% extends "market/base.html" %}
+{% extends "landing/base.html" %}
 {% load static %}
 {% load humanize %}
-{% block contents %}
+{% block content %}
 
-<span style="font-size: 25px;color: rgb(48, 25, 25);"> 
-    Are you sure you want to delete your item <b>"{{item.title | upper}}"</b> you posted <i>{{item.created |naturaltime}} ?</i>
+<span style="font-size: 20px;color: rgb(48, 25, 25);">
+    Are you sure you want to delete  
+   <a href="{% url 'details' item.slug %}">"{{item.title}}"</a></b> you posted <i>{{item.created |naturaltime}} ?</i>
 </span>
 <br><br> 
 <form  method="POST">
     {% csrf_token %}
-    <button class="btn-red" type="submit" name="item_id" 
+    <button class="btn btn-danger" type="submit" name="item_id" 
     value="{{item.id}}">Confirm Delete</button>
 
 </form>
 <br>
 <a  href="{%url 'index' %}"> Go back</a>
   
-{% endblock contents %}
+{% endblock content %}
