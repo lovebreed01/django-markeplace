@@ -32,12 +32,12 @@
 		
 	</div>
 	<h2>Featured ads</h2>
-	<div class="featured-ads d-flex flex-wrap ">
+	<div class="featured-ads ">
 	{% for item in items %}
-		<a href=" {% url 'details' item.slug %}" class="d-flex flex-column overflow-hidden">
+		<a href=" {% url 'details' item.slug %}" class="">
 			<b class="price">#{{item.price}}</b>
 			<img src="{{item.get_first_img.url}}" alt="">
-			<span class="description align-self-center">{{item.title}}</span>
+			<span class="description align-self-center">{{item.title | truncatewords:5 }}</span>
 		</a>
 	{% endfor %}
 		

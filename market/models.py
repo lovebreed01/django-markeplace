@@ -1,9 +1,19 @@
+from random import choices
 from django.db import models
 from django.shortcuts import reverse
 from datetime import datetime
 from django.contrib.auth.models import  User
 from django.utils.text import slugify
 from user.models import State
+
+
+ITEM_STATUS = (
+    ('not disclosed', 'not disclosed'),
+    ('used', 'used item'),
+    ('fairly used' , 'fairly used'),
+    ('new item', 'new item')
+)
+
 
 class Category(models.Model):
     name = models.CharField(max_length=120)
@@ -30,6 +40,10 @@ class Item(models.Model):
     description = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     location = models.ForeignKey(State, on_delete=models.CASCADE, default=1)
+    old_or_new = models.CharField(max_length=20,
+    choices= ITEM_STATUS,
+    default= '1'
+    )
 
     def get_absolute_url(self):
         return reverse("details", kwargs={"slug": self.slug})
@@ -42,18 +56,6 @@ class Item(models.Model):
     def get_first_img(self):
         return self.images_set.all()[0].files
     
-
-    # def get_date(self):
-        # time = datetime.now()
-        # if self.created.day == time.day:
-            # return f"{time.hour - self.created.hour} hours ago"
-        # else :
-            # if self.created.month == time.month:
-                # return f"{time.day - self.created.day } days ago"
-            # else:
-                # if self.created.year == time.year:
-                    # return f"{time.month - self.created.month} months ago"
-        # return self.created
     def __str__(self):
         return f'{self.title}-{self.seller}'
 

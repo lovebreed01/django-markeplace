@@ -59,6 +59,24 @@ def complete_reg(request):
     }
     return render(request,'landing/complete-reg.html',context)
 
+def login_view(request):
+    if request.user.is_authenticated:
+        return redirect('index')
+    elif request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username=username, password      =password)
+        if user is not None:
+            login(request, user)
+            return redirect('index')
+        else:
+            message = 'username or password is incorrect'
+            return render(request, 'landing/login.html' ,context={'message':message})
+    else: 
+          return render(request, 'landing/login.html')
+       
+
+
 @login_required   
 def profile(request):
     profile = request.user.profile
