@@ -15,18 +15,21 @@
 			<button class="btn btn-secondary" type="submit">Search</button>
 		</form>
     </div>
-	<br>
-    <div class="categories d-flex flex-wrap ">
-		<a href=" {% url 'create' %}" class="add-item m-auto d-flex flex-column align-items-center">
+	<a href=" {% url 'create' %}" class="add-item m-auto d-flex flex-column align-items-center">
 			<div class="post-ad">+</div>
 			<span class="text-dark" style="font-size:25px;">Post ad</span>
 		</a>
+
+	<br>
+	<h2>Categories</h2>
+    <div class="categories d-flex flex-wrap ">
+		
 		{% for category in categories %}
 		<a href=" {% url 'category' category.slug %}" class=" category d-flex flex-column align-items-center">
 			<img src="{{category.image.url}}"
 			class="category-image" 
 			alt="" srcset="">
-			<b class="font-size">{{category.name}}</b>
+			<b class="">{{category.name}}</b>
 		</a>
 		{% endfor %}
 		
@@ -34,11 +37,14 @@
 	<h2>Featured ads</h2>
 	<div class="featured-ads ">
 	{% for item in items %}
-		<a href=" {% url 'details' item.slug %}" class="">
+		<div class="item">
 			<b class="price">#{{item.price}}</b>
 			<img src="{{item.get_first_img.url}}" alt="">
-			<span class="description align-self-center">{{item.title | truncatewords:5 }}</span>
-		</a>
+			<p>
+				<a href='{% url 'details' item.slug %}' class="description align-self-center">{{item.title | truncatewords:5 }}</a>
+			</p>
+			
+		</div>
 	{% endfor %}
 		
 		
